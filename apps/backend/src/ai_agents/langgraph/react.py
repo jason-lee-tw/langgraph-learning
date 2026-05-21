@@ -11,7 +11,7 @@ class ReActAgent:
   def __init__(self):
     tools = self.get_tools()
 
-    agent = BaseAgent
+    agent = BaseAgent()
     self.__model = agent.get_model()
     self.__model.bind_tools(tools=tools)
 

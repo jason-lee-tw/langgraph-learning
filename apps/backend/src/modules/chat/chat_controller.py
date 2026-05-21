@@ -1,7 +1,5 @@
 from fastapi import APIRouter
-from modules.chat.chat_service import (
-  process_chat,
-)
+from modules.chat.chat_service import process_chat
 from modules.chat.dto.chat_dto import ChatHistoryDTO, ChatReqDTO, ChatResDTO
 
 router = APIRouter(prefix='/chat')

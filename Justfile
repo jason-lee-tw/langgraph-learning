@@ -31,7 +31,11 @@ down-all:
 down-clean:
   @docker compose -f ./docker-compose.yml down && \
     echo "🔄 Deleting all unused volumes..." && \
-    docker volume prune -af
+    docker volume prune -af && \
+    echo "✅ Deleted all unused volumes"
+  @echo "🔄 Deleting all temp folders" && \
+    find . -type d -name "temp" | xargs rm -rf && \
+    echo "✅ Deleted all temp folders"
 
 [group: "Clean up"]
 clean-python:

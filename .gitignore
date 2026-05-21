@@ -12,6 +12,7 @@ wheels/
 
 # Misc
 .DS_Store
+temp
 
 # Caches
 docs/superpowers
