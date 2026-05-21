@@ -3,7 +3,7 @@ from typing import Any
 
 from ai_agents.tavily.tavily_crawl import TavilyCrawlResponse
 from fastapi import HTTPException
-from langchain_tavily import TavilyCrawl, TavilyExtract, TavilyMap
+from langchain_tavily import TavilyCrawl, TavilyExtract, TavilyMap, TavilySearch
 from server_config.logger import Logger
 
 
@@ -11,6 +11,7 @@ class TavilyClient:
   crawler: TavilyCrawl
   extractor: TavilyExtract
   mapper: TavilyMap
+  searcher: TavilySearch
 
   def __init__(self):
     API_KEY = os.getenv('TAVILY_API_KEY')
@@ -21,6 +22,7 @@ class TavilyClient:
     self.crawler = TavilyCrawl(api_key=API_KEY)
     self.mapper = TavilyMap(api_key=API_KEY)
     self.extractor = TavilyExtract(api_key=API_KEY)
+    self.searcher = TavilySearch(api_key=API_KEY)
 
   def parse_crawler_response(raw_response: Any) -> TavilyCrawlResponse:
     logger = Logger(__name__)
