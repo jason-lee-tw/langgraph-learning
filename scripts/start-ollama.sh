@@ -4,9 +4,6 @@ if ! command -v ollama &>/dev/null; then
   exit 1
 fi
 
-# Start ollama with Homebrew
-brew services start ollama
-
 # Start ollama server on port 11434
 OLLAMA_FLASH_ATTENTION=true \
   OLLAMA_HOST=0.0.0.0 \
@@ -17,4 +14,4 @@ OLLAMA_FLASH_ATTENTION=true \
   OLLAMA_MODELS=~/.ollama/models \
   OLLAMA_KV_CACHE_TYPE=f16 \
   OLLAMA_NO_CACHE=false \
-  nohup ollama serve >/dev/null 2>&1 &
+  ollama serve >/dev/null 2>&1 &
