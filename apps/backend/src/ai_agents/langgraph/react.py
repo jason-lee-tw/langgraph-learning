@@ -12,8 +12,7 @@ class ReActAgent:
     tools = self.get_tools()
 
     agent = BaseAgent()
-    self.__model = agent.get_model()
-    self.__model.bind_tools(tools=tools)
+    self.__model = agent.get_model().bind_tools(tools=tools)
 
   def get_tavily_search_tool(self):
     tavily_search = TavilyClient().searcher
